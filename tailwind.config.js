@@ -42,6 +42,9 @@ module.exports = {
         },
         yellow: "#FDCC49"
       },
+      backgroundImage: {
+        "hero-pattern": "url('/src/assets/home-bg.png')",
+      },
       screens: {
         xs: "480px",
         ss: "620px",
