@@ -1,0 +1,126 @@
+import { useState } from "react";
+import AnchorLink from 'react-anchor-link-smooth-scroll'
+import useMediaQuery from "../hooks/useMediaQuery";
+import { AiOutlineClose } from 'react-icons/ai'
+import { GiHamburgerMenu } from 'react-icons/gi'
+
+import logo from '../assets/lilith-no-bg.png'
+
+const Link = ({ page, selectedPage, setSelectedPage }) => {
+  const lowerCasePage = page.toLowerCase()
+  return(
+    <AnchorLink
+    className={`${selectedPage === lowerCasePage ? "text-yellow" : "text-white"}`}
+    href={`#${lowerCasePage}`}
+    onClick={() => setSelectedPage(lowerCasePage)}
+    >
+      {page}
+    </AnchorLink>
+  )
+}
+
+const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }) => {
+  const [isMenuToggled, setIsMenuToggled] = useState(false)
+  const [isAnimating, setIsAnimating] = useState(false)
+  const isAboveSmallScreens = useMediaQuery("(min-width: 768px)")
+  const navbarBackground = isTopOfPage ? "bg-dark-500" : "bg-red-700"
+
+  const toggleMenu = () => {
+    setIsAnimating(!isMenuToggled);
+    setIsMenuToggled(!isMenuToggled);
+  }
+
+
+  return (
+    <nav
+      className={`${navbarBackground} z-40 w-full fixed top-0 py-6`}>
+      <div className="flex items-center justify-between mx-auto w-5/6">
+        <img
+          className="cursor-pointer w-[200px]"
+          src={logo}
+          alt="Logo"
+          onClick={() => {
+            setSelectedPage('')
+            window.scrollTo(0, 0,)
+        }}
+        />
+        {/*DESKTOP */ }
+        {isAboveSmallScreens ? (
+          <div className="flex justify-between gap-16 font-opensans text-sm font-semibold">
+            <Link 
+            page="Home"
+            selectedPage={selectedPage}
+            setSelectedPage={setSelectedPage}
+            />
+             <Link 
+            page="About"
+            selectedPage={selectedPage}
+            setSelectedPage={setSelectedPage}
+
+            />
+             <Link 
+            page="Classes"
+            selectedPage={selectedPage}
+            setSelectedPage={setSelectedPage}
+
+            />
+             <Link 
+            page="News"
+            selectedPage={selectedPage}
+            setSelectedPage={setSelectedPage}
+            />
+          </div>
+        ) : (
+            <button 
+            className={"rounded-full bg-red-700 p-2"}
+            onClick={toggleMenu}
+            >
+              <GiHamburgerMenu size={24} /> 
+            </button>)}
+
+            {/* MOBILE BUTTON POPUP*/}
+            {!isAboveSmallScreens && isMenuToggled && (
+              <div className={`fixed right-0 top-4 h-full bg-red-700 w-1/3 ${isAnimating ? "menu-animation" : ""} `}>
+                {/* CLOSE ICON */}
+                <div className="flex justify-end p-12">
+                  <button
+                  onClick={() => setIsMenuToggled(!isMenuToggled)}>
+                  <AiOutlineClose size={24} />
+                  </button>
+                </div>
+
+                {/* MENU ITEMS */}
+                <div 
+                  className="flex mt-5 flex-col gap-10 items-center text-2xl "
+                  onClick={() => setIsMenuToggled(!isMenuToggled)}
+                >
+                  <Link 
+                    page="Home"
+                    selectedPage={selectedPage}
+                    setSelectedPage={setSelectedPage}
+                  />
+                  <Link 
+                    page="About"
+                    selectedPage={selectedPage}
+                    setSelectedPage={setSelectedPage}
+                  />
+                  <Link 
+                    page="Classes"
+                    selectedPage={selectedPage}
+                    setSelectedPage={setSelectedPage}
+
+                  />
+                  <Link 
+                    page="News"
+                    selectedPage={selectedPage}
+                    setSelectedPage={setSelectedPage}
+                  />
+                </div>
+              </div>
+            )}
+      </div>
+    </nav>
+  )
+}
+
+export default Navbar
