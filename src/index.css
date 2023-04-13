@@ -27,6 +27,17 @@ svg:hover {
   color: #FDCC49;
 }
 
+.section-wrapper {
+  margin-top: 8rem;
+  margin-left: 1.25rem;
+}
+
+.text-heading {
+  font-size: 2rem;
+  color: #FDCC49;
+  font-weight: 600;
+}
+
 .menu-animation {
   animation: slideFromRight 0.5s ease-out forwards
 }
