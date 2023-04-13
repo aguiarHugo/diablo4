@@ -24,9 +24,9 @@ const About = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3}}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.5 }}
             variants={{ 
-              hidden: { opacity:0, x:-60 },
+              hidden: { opacity:0, x:-50 },
               visible: { opacity:1, x:0 }
             }} 
               className="flex flex-col gap-3"
@@ -59,7 +59,7 @@ const About = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3}}
-              transition={{ ease: "easeOut", duration: 2 }}
+              transition={{ ease: "easeOut", duration: 1 }}
               variants={{ 
                 hidden: { opacity:0 },
                 visible: { opacity:1 }
@@ -74,7 +74,7 @@ const About = () => {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.3}}
-                transition={{ ease: "easeOut", duration: 2 }}
+                transition={{ ease: "easeOut", duration: 1 }}
                 variants={{ 
                   hidden: { opacity:0 },
                   visible: { opacity:1 }
@@ -85,9 +85,9 @@ const About = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3}}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.5 }}
             variants={{ 
-              hidden: { opacity:0, x:-60 },
+              hidden: { opacity:0, x:-50 },
               visible: { opacity:1, x:0 }
             }} 
             className="flex flex-col gap-3">
