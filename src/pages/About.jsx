@@ -6,6 +6,7 @@ import SocialMedia from "../components/SocialMedia";
 import useMediaQuery from "../hooks/useMediaQuery";
 
 import lilith from '../assets/lilith-no-bg.png'
+import Footer from "../components/Footer";
 
 const About = () => {
   const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
@@ -117,6 +118,8 @@ const About = () => {
         </>
         )} 
         </div>
+        <div className="mt-36" />
+        <Footer />
     </section>
   )
 }
