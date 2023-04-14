@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import useMediaQuery from "../hooks/useMediaQuery";
 import Navbar from "../components/Navbar";
 import SocialMedia from "../components/SocialMedia";
+import Footer from "../components/Footer";
 
 const Home = () => {
   const [selectedPage, setSelectedPage] = useState('home')
@@ -43,6 +44,7 @@ const Home = () => {
           <SocialMedia />
         </motion.div>
       </div>
+      <Footer />
     </section>
   )
 }
