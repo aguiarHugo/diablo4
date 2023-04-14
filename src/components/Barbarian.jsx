@@ -22,7 +22,7 @@ const Barbarian = () => {
             }} 
               className="flex flex-col gap-3 max-w-[800px] pr-8"
             >
-              <h2 className="text-heading">
+              <h2 className="text-heading text-center">
                 Barbarian
               </h2> 
               <p>
@@ -70,7 +70,7 @@ const Barbarian = () => {
                 visible: { opacity:1 }
               }}
               src={barbarian} alt="Barbarian"
-              className='rounded- w-[600px] h-[500px] mt-4'
+              className='rounded- w-[600px] h-[500px] mt-4 rounded-md border-4 border-solid border-red-600'
             />
           </div>
           </>
@@ -86,7 +86,9 @@ const Barbarian = () => {
                   hidden: { opacity:0 },
                   visible: { opacity:1 }
                 }}
-                src={barbarian} alt="Barbarian" />
+                src={barbarian} alt="Barbarian"
+                className='w-[300px] h-[200px] rounded-md border-4 border-solid border-red-600'
+              />
             </div>
             <motion.div
             initial="hidden"
@@ -98,7 +100,7 @@ const Barbarian = () => {
               visible: { opacity:1, x:0 }
             }} 
             className="flex flex-col gap-3">
-            <h2 className="text-heading">
+            <h2 className="text-heading text-center">
                 Barbarian
               </h2> 
               <p>
