@@ -29,7 +29,7 @@ const Classes = () => {
       <Druid />
       <Rogue />
       <Necromancer />
-
+      <div className="mt-4" />
       <Footer />
     </section>
   )
