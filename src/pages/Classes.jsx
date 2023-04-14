@@ -7,6 +7,7 @@ import useMediaQuery from "../hooks/useMediaQuery";
 
 import lilith from '../assets/lilith-no-bg.png'
 import Barbarian from "../components/Barbarian";
+import Sorceress from "../components/Sorceress";
 
 const Classes = () => {
   const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
@@ -19,6 +20,7 @@ const Classes = () => {
         setSelectedPage ={setSelectedPage}
       />
       <Barbarian />
+      <Sorceress />
     </section>
   )
 }
