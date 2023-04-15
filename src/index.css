@@ -38,6 +38,26 @@ svg:hover {
   font-weight: 600;
 }
 
+.subtext {
+  font-size: 1.6rem;
+  color: #FDCC49;
+  font-weight: 600;
+}
+
+body::-webkit-scrollbar {
+  width: 8px;             
+}
+
+body::-webkit-scrollbar-track {
+  background:#121214;        
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #121214;    
+  border-radius: 20px;       
+  border: 2px solid #5c1210;  
+}
+
 .menu-animation {
   animation: slideFromRight 0.5s ease-out forwards
 }
