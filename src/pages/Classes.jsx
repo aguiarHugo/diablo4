@@ -30,8 +30,9 @@ const Classes = () => {
         <Druid />
         <Rogue />
         <Necromancer />
-        <div className="mt-3"/>
-        <Footer />
+        <div className="h-16">
+          <Footer />
+        </div>
       </div>
     </section>
   )
