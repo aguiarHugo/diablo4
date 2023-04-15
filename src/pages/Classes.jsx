@@ -22,15 +22,17 @@ const Classes = () => {
         selectedPage={selectedPage}
         setSelectedPage ={setSelectedPage}
       />
-      <h1 className="mt-40 text-center text-heading">Classes</h1>
-      <p className="text-center">Diablo 4 is an exciting new game that will feature five classes upon its release. These classes are:</p>
-      <Barbarian />
-      <Sorceress />
-      <Druid />
-      <Rogue />
-      <Necromancer />
-      <div className="mt-4" />
-      <Footer />
+      <div className="h-screen">
+        <h1 className="mt-40 text-center text-heading">Classes</h1>
+        <p className="text-center">Diablo 4 is an exciting new game that will feature five classes upon its release. These classes are:</p>
+        <Barbarian />
+        <Sorceress />
+        <Druid />
+        <Rogue />
+        <Necromancer />
+        <div className="mt-3"/>
+        <Footer />
+      </div>
     </section>
   )
 }

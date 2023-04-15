@@ -118,7 +118,7 @@ const About = () => {
         </>
         )} 
         </div>
-        <div className="mt-36" />
+        <div className="mt-32 pb-1" />
         <Footer />
     </section>
   )
