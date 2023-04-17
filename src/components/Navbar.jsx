@@ -27,6 +27,8 @@ const Links = ({ page, selectedPage, setSelectedPage }) => {
 const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }) => {
   const [isMenuToggled, setIsMenuToggled] = useState(false)
   const [isAnimating, setIsAnimating] = useState(false)
+
+  
   const isAboveSmallScreens = useMediaQuery("(min-width: 768px)")
   
   const navbarBackground = useMemo(
