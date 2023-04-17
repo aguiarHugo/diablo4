@@ -8,12 +8,20 @@ import { Link } from "react-router-dom";
 
 const Links = ({ page, selectedPage, setSelectedPage }) => {
   const lowerCasePage = page.toLowerCase()
+  const handleNavigation = (route) => {
+    window.scrollTo(0, 0); 
+    history.push(route); 
+  };
   
   return(
     <Link
     className={`${selectedPage === lowerCasePage ? "text-yellow" : "text-white"}`}
     to={`/${lowerCasePage}`}
-    onClick={() => setSelectedPage(lowerCasePage)}
+    onClick={() => {
+      setSelectedPage(lowerCasePage);
+      handleNavigation();
+      }
+    }
     >
       {page}
     </Link>
@@ -57,7 +65,6 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }) => {
             page="About"
             selectedPage={selectedPage}
             setSelectedPage={setSelectedPage}
-
             />
              <Links
             page="Classes"
@@ -99,6 +106,7 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }) => {
                     page="Home"
                     selectedPage={selectedPage}
                     setSelectedPage={setSelectedPage}
+
                   />
                   <Links
                     page="About"
