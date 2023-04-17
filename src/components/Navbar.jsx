@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import useMediaQuery from "../hooks/useMediaQuery";
 import { AiOutlineClose } from 'react-icons/ai'
 import { GiHamburgerMenu } from 'react-icons/gi'
@@ -7,11 +7,7 @@ import logo from '../assets/logo.png'
 import { Link } from "react-router-dom";
 
 const Links = ({ page, selectedPage, setSelectedPage }) => {
-  const lowerCasePage = page.toLowerCase()
-  const handleNavigation = (route) => {
-    window.scrollTo(0, 0); 
-    history.push(route); 
-  };
+  const lowerCasePage = page.toLowerCase();
   
   return(
     <Link
@@ -19,7 +15,7 @@ const Links = ({ page, selectedPage, setSelectedPage }) => {
     to={`/${lowerCasePage}`}
     onClick={() => {
       setSelectedPage(lowerCasePage);
-      handleNavigation();
+      windowScrollTo(0, 0);
       }
     }
     >
@@ -32,13 +28,25 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }) => {
   const [isMenuToggled, setIsMenuToggled] = useState(false)
   const [isAnimating, setIsAnimating] = useState(false)
   const isAboveSmallScreens = useMediaQuery("(min-width: 768px)")
-  const navbarBackground = isTopOfPage ? "bg-transparent" : "bg-red-700"
-  const navbarLogo = isTopOfPage ? "invisible" : ""
+  
+  const navbarBackground = useMemo(
+    () => (isTopOfPage ? "bg-transparent" : "bg-red-700"),
+    [isTopOfPage]
+  );  
 
-  const toggleMenu = () => {
-    setIsAnimating(!isMenuToggled);
-    setIsMenuToggled(!isMenuToggled);
-  }
+  const navbarLogo = useMemo(
+    () => (isTopOfPage ? "invisible" : ""),
+    [isTopOfPage]
+  );
+
+  const toggleMenu = useMemo(() => {
+    const animate = () => {
+      setIsAnimating(!isMenuToggled);
+      setIsMenuToggled(!isMenuToggled);
+    };
+    return animate;
+  }, [isMenuToggled]);
+
 
   return (
     <nav
@@ -92,7 +100,7 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }) => {
                 {/* CLOSE ICON */}
                 <div className="flex justify-end p-12">
                   <button
-                  onClick={() => setIsMenuToggled(!isMenuToggled)}>
+                  onClick={() => setIsMenuToggled(prevState => !prevState)}>
                   <AiOutlineClose size={24} />
                   </button>
                 </div>
