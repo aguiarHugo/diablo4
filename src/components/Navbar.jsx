@@ -15,7 +15,7 @@ const Links = ({ page, selectedPage, setSelectedPage }) => {
     to={`/${lowerCasePage}`}
     onClick={() => {
       setSelectedPage(lowerCasePage);
-      windowScrollTo(0, 0);
+      window.scrollTo(0, 0);
       }
     }
     >
